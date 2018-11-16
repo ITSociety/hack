@@ -1,0 +1,9 @@
+{
+  "name": "hack",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/ITSociety/hack.git",
+  "author": "IT Society <itsoc@upsu.net>",
+  "license": "GPL-3.0",
+  "private": false
+}

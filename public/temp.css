@@ -1,0 +1,49 @@
+body {
+  display: flex;
+  height: 100vh;
+  margin: 0;
+  font-family: sans-serif;
+  flex-direction: column;
+  background-color: #212121;
+  color: white;
+}
+
+body > main {
+  flex: 1;
+}
+
+ul.info {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+}
+
+ul.info > li {
+  display: inline-block;
+  display: flex;
+}
+
+
+ul.info > li > span {
+  font-size: 20px;
+}
+
+.panel {
+  padding: 24px;
+  margin: .5rem 0 1rem 0;
+  border-radius: 7px;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+
+.panel.hero {
+  background-color: #44a08d;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
