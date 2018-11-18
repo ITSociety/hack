@@ -12,24 +12,6 @@ body > main {
   flex: 1;
 }
 
-ul.info {
-  list-style: none;
-  margin: 0;
-  display: flex;
-  justify-content: space-around;
-  padding: 0;
-}
-
-ul.info > li {
-  display: inline-block;
-  display: flex;
-}
-
-
-ul.info > li > span {
-  font-size: 20px;
-}
-
 .panel {
   padding: 24px;
   margin: .5rem 0 1rem 0;
@@ -40,6 +22,8 @@ ul.info > li > span {
 
 .panel.hero {
   background-color: #44a08d;
+  display: flex;
+  justify-content: space-between;
 }
 
 .container {
