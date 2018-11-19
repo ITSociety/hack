@@ -1,63 +1,49 @@
 //This is the service worker with the Cache-first network
 
-var CACHE = 'pwabuilder-precache';
-var precacheFiles = [
+const CACHE = 'hack-2'
+const precacheFiles = [
   '/',
   '/index.html',
   '/public/fb.png',
   '/public/twit.png',
   '/public/temp.css',
   '/public/white-logo.png'
-];
+]
 
 //Install stage sets up the cache-array to configure pre-cache content
-self.addEventListener('install', function(evt) {
-  console.log('[PWA] The service worker is being installed.');
-  evt.waitUntil(precache().then(function() {
-    console.log('[PWA] Skip waiting on install');
-    return self.skipWaiting();
-  }));
-});
+self.addEventListener('install', (evt) => {
+  console.log('[PWA] The service worker is being installed.')
+  evt.waitUntil(precache())
+})
 
 //allow sw to control of current page
-self.addEventListener('activate', function(event) {
-  console.log('[PWA] Claiming clients for current page');
-  return self.clients.claim();
-});
+self.addEventListener('activate', () => {
+  console.log('[PWA] Claiming clients for current page')
+  return self.clients.claim()
+})
 
-self.addEventListener('fetch', function(evt) {
-  console.log('[PWA] The service worker is serving the asset.'+ evt.request.url);
-  evt.respondWith(fromCache(evt.request).catch(fromServer(evt.request)));
-  evt.waitUntil(update(evt.request));
-});
+self.addEventListener('fetch', (evt) => {
+  console.log('[PWA] The service worker is serving the asset.'+ evt.request.url)
+  evt.respondWith(fromCache(evt.request).catch(fetch(evt.request)))
+  evt.waitUntil(update(evt.request))
+})
 
 
-function precache() {
-  return caches.open(CACHE).then(function (cache) {
-    return cache.addAll(precacheFiles);
-  });
-}
+const precache = () => caches.open(CACHE).then((cache) => cache.addAll(precacheFiles))
 
-function fromCache(request) {
-  //we pull files from the cache first thing so we can show them fast
-  return caches.open(CACHE).then(function (cache) {
-    return cache.match(request).then(function (matching) {
-      return matching || Promise.reject('no-match');
-    });
-  });
-}
+//we pull files from the cache first thing so we can show them fast
+const fromCache = (request) => 
+  caches.open(CACHE).then(
+    (cache) => cache.match(request).then(
+      (matching) => matching || Promise.reject('no-match')
+    )
+  )
 
-function update(request) {
-  //this is where we call the server to get the newest version of the 
-  //file to use the next time we show view
-  return caches.open(CACHE).then(function (cache) {
-    return fetch(request).then(function (response) {
-      return cache.put(request, response);
-    });
-  });
-}
-
-function fromServer(request){
-  //this is the fallback if it is not in the cache to go to the server and get it
-  return fetch(request).then(function(response){ return response});
-}
+//this is where we call the server to get the newest version of the 
+//file to use the next time we show view
+const update = (request) => 
+  caches.open(CACHE).then(
+    (cache) => fetch(request).then(
+      (response) => cache.put(request, response)
+    )
+  )
