@@ -11,7 +11,7 @@
     <meta property="og:title" content="UoP IT Society Hackathon">
     <meta property="og:type" content="website">
     <meta property="og:url" content="hack.itsoc.tech/">
-    <meta property="og:image" content="hack.itsoc.tech/public/logo.png">
+    <meta property="og:image" content="/public/black-logo.png">
     <meta name="Description" content="Landing page for UoP&#39;s IT Soceity Hackathon!">
 
     <!-- resources -->
@@ -25,49 +25,85 @@
   <body>
 
     <main class="container">
-      <section class="panel hero">
-        <img src="/public/white-logo.png" alt="IT Society Logo">
+      <section class="main">
+        <h1>IT Society Hackathon!</h1>
 
-        <div>
-          <ul>
-            <li><i class="material-icons">calendar_today</i><span>XXth February, 2019</span></li>
-            <li><i class="material-icons">location_on</i><span>Future Technology Center, Portsmouth</span></li>
-            <li><i class="material-icons">attach_money</i><span>Free!</span></li>
-          </ul>
+        <div class="main_info">
+          <div class="main_info__date"><i class="material-icons accent-text">calendar_today</i><span>24th February, 2019</span></div>
+          <div class="main_info__location"><i class="material-icons accent-text">location_on</i><span>Future Technology Center, Portsmouth</span></div>
+          <p>some paragraphs about how awesome we are</p>
+          <a href="/todo" class="btn">Join up!</a>
         </div>
-
-        <span>Let me in!</span>
-
-        <span>I've got questions</span>
-
-        <span>What can I build?</span>
-
-        <span>I want to join, but don't think I can code</span>
       </section>
 
       <section class="location">
+        <h2>So, Where is it?</h2>
+        some map
+      </section>
 
+      <section class="themes">
+        <h2>Possible Themes</h2>
+        <p>Something something themes aren't important but here's some guidance</p>
       </section>
 
       <section class="awards">
-
+        <h2>The Awards!</h2>
+        <p>let us win some stuff!</p>
+        <div class="awards_award">
+          <div class="awards_award__use-of-tech"></div>
+        </div>
+        <div class="awards_award">
+          <div class="awards_award__likely-to-receive-lawsuit"></div>
+        </div>
+        <div class="awards_award">
+          <div class="awards_award__most_entertaining"></div>
+        </div>
+        <div class="awards_award">
+          <div class="awards_award__best_designed"></div>
+        </div>
       </section>
 
       
       <section class="sponsors">
-        
+        <h2>Our Sponsors!</h2>
+        some sponsor logos
+        <div class="sponsors_sponsor"><div class="sponsors_sponsor__elanco">elanco</div></div>
+        <div class="sponsors_sponsor"><div class="sponsors_sponsor__microhacks">microhacks</div></div>
       </section>
 
-      <section class="faq">
-
+      <section class="faqs">
+        <h2>I've Some Questions</h2>
+        <ul class="faqs">
+          <li class="faqs__faq">
+            <h3>Do I have to be a member of the society to join?</h3>
+            <p>You don't have to, but we'd love it if you <a href="https://membership.upsu.net/group/it-society#join">joined us!</a></p>
+          </li>
+          <li class="faqs__faq">
+            <h3>What can I build?</h3>
+            <p>Anything you want! We've got a couple of themes to get you going, but don't think you've got to stick to them!</p>
+          </li>
+          <li class="faqs__faq">
+            <h3>I want to join, but I don't think I can code.</h3>
+            <p>Of course! We're running pre-hack sessions to train everybody up - but if you don't feel like you're up to the task, join a team that needs your skillset!</p>
+          </li>
+          <li class="faqs__faq">
+            <h3>Where is it?</h3>
+            <p>The Future Technology Center in the <a href='/todo'>University Quarter</a></p>
+          </li>
+          <li class="faqs__faq"></li>
+          <li class="faqs__faq"></li>
+          <li class="faqs__faq"></li>
+        </ul>
       </section>
     </main>
 
     <footer>
+      <img src="/public/white-logo.png" alt="IT Society Logo" class="footer_logo">
       <span class="footer_description">&copy; 2018, IT Society</span>
       <div class="footer_socials">
         <a href="/todo" class="footer_socials__facebook"><img src="/public/fb.png" alt="IT Society fb"></a>
         <a href="/todo" class="footer_socials__twitter"><img src="/public/twit.png" alt="IT Society twitter"></a>
+        <a href="/todo"><img src="/public/su.png" alt="IT Society UPSU"></a>
       </div>
     </footer>
     
