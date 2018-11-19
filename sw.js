@@ -13,7 +13,7 @@ const precacheFiles = [
 //Install stage sets up the cache-array to configure pre-cache content
 self.addEventListener('install', (evt) => {
   console.log('[PWA] The service worker is being installed.')
-  evt.waitUntil(precache())
+  evt.waitUntil(precache().then(() => self.skipWaiting()))
 })
 
 //allow sw to control of current page
@@ -24,7 +24,7 @@ self.addEventListener('activate', () => {
 
 self.addEventListener('fetch', (evt) => {
   console.log('[PWA] The service worker is serving the asset.'+ evt.request.url)
-  evt.respondWith(fromCache(evt.request).catch(fetch(evt.request)))
+  evt.respondWith(fromCache(evt.request))
   evt.waitUntil(update(evt.request))
 })
 
@@ -35,7 +35,7 @@ const precache = () => caches.open(CACHE).then((cache) => cache.addAll(precacheF
 const fromCache = (request) => 
   caches.open(CACHE).then(
     (cache) => cache.match(request).then(
-      (matching) => matching || Promise.reject('no-match')
+      (matching) => matching || fetch(request)
     )
   )
 
