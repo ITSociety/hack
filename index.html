@@ -16,7 +16,7 @@
 
     <!-- resources -->
     <link rel="shortcut icon" href="/public/black-logo.png" />
-
+    <link rel="manifest" href="/manifest.json">
     <link rel="stylesheet" href="/public/temp.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
@@ -101,12 +101,25 @@
       <img src="/public/white-logo.png" alt="IT Society Logo" class="footer_logo">
       <span class="footer_description">&copy; 2018, IT Society</span>
       <div class="footer_socials">
-        <a href="/todo" class="footer_socials__facebook"><img src="/public/fb.png" alt="IT Society fb"></a>
-        <a href="/todo" class="footer_socials__twitter"><img src="/public/twit.png" alt="IT Society twitter"></a>
-        <a href="/todo"><img src="/public/su.png" alt="IT Society UPSU"></a>
+        <a href="/todo" class="footer_socials__facebook"><img class="footer_socials__icon" src="/public/fb.png" alt="IT Society fb"></a>
+        <a href="/todo" class="footer_socials__twitter"><img class="footer_socials__icon" src="/public/twit.png" alt="IT Society twitter"></a>
+        <a href="/todo"><img class="footer_socials__icon" src="/public/su.png" alt="IT Society UPSU"></a>
       </div>
     </footer>
     
+    <script>
+    if (navigator.serviceWorker.controller) {
+      console.log('[PWA] active service worker found, no need to register')
+    } else {
+
+    //Register the ServiceWorker
+      navigator.serviceWorker.register('/sw.js', {
+        scope: './'
+      }).then(function(reg) {
+        console.log('Service worker has been registered for scope:'+ reg.scope);
+      });
+    }
+</script>
 
   </body>
 </html>
